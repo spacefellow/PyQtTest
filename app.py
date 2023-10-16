@@ -39,7 +39,6 @@ if __name__ == '__main__':
     import sys
     app = QtWidgets.QApplication(sys.argv)
     dirPath = os.path.expanduser('~')
-    print()
     w = Widget(dirPath)
     w.show()
     sys.exit(app.exec_())
