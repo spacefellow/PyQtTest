@@ -1,11 +1,13 @@
 import os
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.Qt import QDir
+import sys
+
+
 class Widget(QtWidgets.QWidget):
     def __init__(self, dir_path, parent=None):
         super(Widget, self).__init__(parent)
         le = QtWidgets.QLineEdit(textChanged=self.on_textChanged)
-
         self._dirpath = dir_path
 
         self.file_model = QtWidgets.QFileSystemModel()
@@ -35,8 +37,8 @@ class Widget(QtWidgets.QWidget):
         proxy_index = self.proxy_model.mapFromSource(root_index)
         self.tree.setRootIndex(proxy_index)
 
+
 if __name__ == '__main__':
-    import sys
     app = QtWidgets.QApplication(sys.argv)
     dirPath = os.path.expanduser('~')
     w = Widget(dirPath)
